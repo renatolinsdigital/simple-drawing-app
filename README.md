@@ -18,7 +18,7 @@ A drawing application featuring core functionalities such as brush strokes, undo
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/drawing-app.git
+   git clone https://github.com/renatolinsdigital/simple-drawing-app.git
    cd drawing-app
    ```
 
