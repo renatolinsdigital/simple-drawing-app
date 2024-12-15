@@ -1,0 +1,104 @@
+.canvas-container {
+  overflow: hidden;
+  position: relative;
+  background-color: #ccc;
+  @apply w-full h-full max-w-full;
+}
+
+.canvas {
+  touch-action: none;
+  position: absolute;
+}
+
+.scroll-indicator {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  @apply top-0 left-0 right-0 bottom-0;
+
+  .scroll-x,
+  .scroll-y {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+  }
+
+  .scroll-x {
+    width: 100px;
+    height: 8px;
+    margin-right: 5px;
+  }
+
+  .scroll-y {
+    width: 8px;
+    height: 100px;
+  }
+}
+
+//TODO: Fade out effect when not scrolling
+.scroll-indicator:not(:hover) {
+  .scroll-x,
+  .scroll-y {
+    opacity: 0.5;
+  }
+}
+
+.canvas-control {
+  left: 10px;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  z-index: 999;
+  overflow: hidden;
+  appearance: none;
+  position: relative;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #111;
+}
+
+.color-picker-container {
+  @extend .canvas-control;
+
+  .color-picker {
+    top: -15px;
+    left: -15px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  &.canvas {
+    top: 10px;
+  }
+
+  &.brush {
+    top: 40px;
+  }
+}
+
+.export-button {
+  top: 70px;
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  @apply bg-secondary;
+  justify-content: center;
+  @extend .canvas-control;
+}
+
+.brush-size-container {
+  top: 15px;
+  right: 15px;
+  z-index: 999;
+  position: absolute;
+  .range-slider,
+  input {
+    cursor: pointer;
+  }
+}
